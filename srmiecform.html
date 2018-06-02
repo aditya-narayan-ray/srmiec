@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ebform</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="srmiecstyle.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+</head>
+<body>
+	<div class="container-fluid">
+		<form>
+			<div class="row">
+				<div class="col-lg-3 col-xs-1"></div>
+				<div class="col-lg-6 col-xs-10">
+					<div class="form-group">
+						<label>Name <span style="color: red">*</span></label>
+						<input type="text" class="form-control" id="usr" placeholder="Name" required>
+						<br>
+						<label>Sex <span style="color: red">*</span></label>
+						<br>
+						<input type="radio" class="" name="male">Male 
+						<input type="radio" class="" name="female"> Female
+						<br><br>
+						<label>College/School <span style="color: red">*</span></label>
+						<select class="form-control" name="College">
+							<option></option>
+							<option>SRM University, Kattankulathur</option>
+							<option>Other</option>
+						</select>
+						<br>
+						<label>Primary Phone Number <span style="color: red">*</span></label>
+						<input type="text" name="pn1" class="form-control" placeholder="Primary Phone Number" required>
+						<br>
+						<label>Secondary Phone Number <span style="color: red">*</span></label>
+						<input type="text" name="pn2" class="form-control" placeholder="Secondary Phone Number" required>
+						<br>
+						<label>Email <span style="color: red">*</span></label>
+						<input type="email" name="email" class="form-control" placeholder="Email" required>
+						<br>
+						<label>City of Residence <span style="color: red">*</span></label>
+						<input type="text" name="cityresi" class="form-control" placeholder="City of Residence" required>
+						<br>
+						<label>Previous MUN Experience as a delegate/ reporter <span style="color: red">*</span></label>
+						<input type="number" name="previousex1" class="form-control" placeholder="Enter a number" required>
+						<br>
+						<label>Previous MUN Experience as an EB Member/ IP Head <span style="color: red">*</span></label>
+						<input type="number" name="previousex2" class="form-control" placeholder="Enter a number" required>
+						<br>
+						<br><br><br><br>
+						<h3>Commitee Preferences</h3>
+						Please select three commitees.
+						<br><br><br>
+						For each committee, choose three preferences.
+						<br><br>
+						<label>First Committee Preference <span style="color: red">*</span></label>
+						<select class="form-control" name="College">
+							<option></option>
+							<option>Option 1</option>
+							<option>Option 2</option>
+						</select>
+						<br>
+						<label>Second Committee Preference <span style="color: red">*</span></label>
+						<select class="form-control" name="College">
+							<option></option>
+							<option>Option 1</option>
+							<option>Option 2</option>
+						</select>
+						<br>
+						<label>Third Committee Preference <span style="color: red">*</span></label>
+						<select class="form-control" name="College">
+							<option></option>
+							<option>Option 1</option>
+							<option>Option 2</option>
+						</select><br>
+						<br><br><br><br><br><br><br><br><br><br><br><br>
+						<label for="comment">Comments</label>
+						<textarea class="form-control" rows="6" id="comment" placeholder="Comments"></textarea>
+						<br>
+						<button type="button" class="btn btn-default btn-md">Default</button>
+
+
+					</div>
+				</div> 
+			</div>
+			<div class="col-lg-3 col-xs-1"></div>
+		</div>
+	</form>
+</div>
+</body>
+</html>
