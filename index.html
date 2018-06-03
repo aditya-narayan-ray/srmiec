@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	    <link rel="icon" type="image/png" href="img/iec_logo_small.png"/>
-	    <title>SRMIEC 18 | EB Application</title>
+	<link rel="icon" type="image/png" href="img/iec_logo_small.png"/>
+	<title>SRMIEC 18 | EB Application</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -12,25 +12,25 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 </head>
 <body>
-<br><br>
-  <div class="row" style="width: 100%;">
-    <div class="col-lg-12 col-xs-12" style="width: 100%;text-align: center;">      
-      <img src="img/1.png" style="width: 20%;">
-    </div>
-  </div>
-  <br><br><br>
+	<br><br>
+	<div class="row" style="width: 100%;">
+		<div class="col-lg-12 col-xs-12" style="width: 100%;text-align: center;">      
+			<img src="img/1.png" style="width: 20%;">
+		</div>
+	</div>
+	<br><br><br>
 
 
-  <div class="row" style="width: 100%;">
-    <div class="container">
-    <div class=" col-lg-12 col-xs-12" style="width: 100%;padding-left: 25%">
-      <h2 style="font-size: 44px;color:#282828;font-family: 'Raleway', sans-serif;font-weight: 700;">Executive Board Registration</h2>
-      <p style="font-size:16px;color:#282828;font-weight: 400;font-family: 'Raleway', sans-serif;">First step to be a part of the Legacy.</p>
+	<div class="row" style="width: 100%;">
+		<div class="container">
+			<div class=" col-lg-12 col-xs-12" style="width: 100%;padding-left: 25%">
+				<h2 style="font-size: 44px;color:#282828;font-family: 'Raleway', sans-serif;font-weight: 700;">Executive Board Registration</h2>
+				<p style="font-size:16px;color:#282828;font-weight: 400;font-family: 'Raleway', sans-serif;">First step to be a part of the Legacy.</p>
 
-      <br><br>
-  </div>
-</div>
-</div>
+				<br><br>
+			</div>
+		</div>
+	</div>
 
 	<div class="container-fluid">
 
@@ -49,10 +49,16 @@
 						<br><br>
 						<label>College/School <span style="color: red">*</span></label>
 						<select class="form-control" name="College">
-							<option></option>
+							<option disabled selected value> -- select an option -- </option>
 							<option>SRM University, Kattankulathur</option>
 							<option>Other</option>
 						</select>
+						<br>
+						<label>Course/Standard <span style="color: red">*</span></label>
+						<input type="text" class="form-control" id="usr" placeholder="Course or Standard" required>
+						<br>
+						<label>Date of Birth <span style="color: red">*</span></label>
+						<input type="date" class="form-control" id="usr" placeholder="Date of Birth" required>
 						<br>
 						<label>Primary Phone Number <span style="color: red">*</span></label>
 						<input type="text" name="pn1" class="form-control" placeholder="Primary Phone Number" required>
@@ -66,11 +72,19 @@
 						<label>City of Residence <span style="color: red">*</span></label>
 						<input type="text" name="cityresi" class="form-control" placeholder="City of Residence" required>
 						<br>
-						<label>Previous MUN Experience as a delegate/ reporter <span style="color: red">*</span></label>
+						<label>DELEGATE EXPERIENCE (S.NO, NAME OF THE MUN, YEAR, ORGANIZED BY, COUNTRY & COMMITTEE, AWARDS WON (IF ANY)): <span style="color: red">*</span></label>
 						<input type="number" name="previousex1" class="form-control" placeholder="Enter a number" required>
 						<br>
-						<label>Previous MUN Experience as an EB Member/ IP Head <span style="color: red">*</span></label>
+						<input type="number" name="previousex1" class="form-control" placeholder="Enter a number">
+						<br>
+						<input type="number" name="previousex1" class="form-control" placeholder="Enter a number">
+						<br>
+						<label>EB EXPERIENCE (S.NO, NAME OF THE MUN, YEAR, ORGANIZED BY, POST REPRESENTED & COMMITTEE, AWARDS WON (IF ANY)): <span style="color: red">*</span></label>
 						<input type="number" name="previousex2" class="form-control" placeholder="Enter a number" required>
+						<br>
+						<input type="number" name="previousex2" class="form-control" placeholder="Enter a number">
+						<br>
+						<input type="number" name="previousex2" class="form-control" placeholder="Enter a number">
 						<br>
 						<br><br><br><br>
 						<h3>Commitee Preferences</h3>
@@ -79,25 +93,56 @@
 						For each committee, choose three preferences.
 						<br><br>
 						<label>First Committee Preference <span style="color: red">*</span></label>
-						<select class="form-control" name="College">
-							<option></option>
-							<option>Option 1</option>
-							<option>Option 2</option>
+						<select class="form-control" name="Firstcommittee" required>
+							<option disabled selected value> -- select an option -- </option>
+							<option>Futuristic Energy Crisis Committee</option>
+							<option>Council for Environmental Security</option>
+							<option>Persistent Past Committee</option>
+							<option>Indian Council for Sustainable Energy Development</option>
 						</select>
 						<br>
 						<label>Second Committee Preference <span style="color: red">*</span></label>
-						<select class="form-control" name="College">
-							<option></option>
-							<option>Option 1</option>
-							<option>Option 2</option>
+						<select class="form-control" name="Secondcommittee" required>
+							<option disabled selected value> -- select an option -- </option>
+							<option>Futuristic Energy Crisis Committee</option>
+							<option>Council for Environmental Security</option>
+							<option>Persistent Past Committee</option>
+							<option>Indian Council for Sustainable Energy Development</option>
 						</select>
 						<br>
-						<label>Third Committee Preference <span style="color: red">*</span></label>
-						<select class="form-control" name="College">
-							<option></option>
-							<option>Option 1</option>
-							<option>Option 2</option>
-						</select><br>
+						<label>Third Committee Preference <span style="color: red"></span></label>
+						<select class="form-control" name="Thirdcommittee">
+							<option disabled selected value> -- select an option -- </option>
+							<option>Futuristic Energy Crisis Committee</option>
+							<option>Council for Environmental Security</option>
+							<option>Persistent Past Committee</option>
+							<option>Indian Council for Sustainable Energy Development</option>
+						</select>
+						<br>
+						<label>Accomodation <span style="color: red">*</span></label>
+						<br>
+						<input type="radio" class="" name="yesaccomodation"> Yes 
+						<input type="radio" class="" name="noaccomodation"> No
+						<br><br>
+						<label>Position prefered <span style="color: red"></span>*</label>
+						<select class="form-control" name="Position" required>
+							<option disabled selected value> -- select an option -- </option>
+							<option>Chairperson</option>
+							<option>Vice Chairperson</option>
+							<option>Director</option>
+						</select>
+						<br><br><br><br><br>
+						<h3>What’s the expected mock flow of debate for agenda for your -</h3>
+						<br><br>
+						<label>First Committee Preference <span style="color: red">*</span></label>
+						<textarea class="form-control" rows="6" id="fcp" placeholder="Agenda" required></textarea>
+						<br>
+						<label>Second Committee Preference <span style="color: red">*</span></label>
+						<textarea class="form-control" rows="6" id="scp" placeholder="Agenda" required></textarea>
+						<br>
+						<label>Third Committee Preference <span style="color: red"></span></label>
+						<textarea class="form-control" rows="6" id="tcp" placeholder="Agenda"></textarea>
+						<br>
 						<br><br><br><br><br><br><br><br><br><br><br><br>
 						<label for="comment">Comments</label>
 						<textarea class="form-control" rows="6" id="comment" placeholder="Comments"></textarea>
@@ -116,13 +161,13 @@
 
 <div class="bottom" style="background-color:transparent;">
 
-      <div class="col-lg-12 col-xs-12" style="text-align: center;">
-        <a href="http://srmkzilla.net/"><img src="img/moz png.png"></a>
-         <p style="margin-bottom: 0;text-align: center;color:#A5CC82;">Meet our awesome <a href="team.html" style="text-decoration: none;color:#A5CC82"><strong>Developers</strong></a></p>
-        <br>
-      </div> 
-      
-  </div>
+	<div class="col-lg-12 col-xs-12" style="text-align: center;">
+		<a href="http://srmkzilla.net/"><img src="img/moz png.png"></a>
+		<p style="margin-bottom: 0;text-align: center;color:#A5CC82;">Meet our awesome <a href="team.html" style="text-decoration: none;color:#A5CC82"><strong>Developers</strong></a></p>
+		<br>
+	</div> 
+
+</div>
 
 
 </body>
