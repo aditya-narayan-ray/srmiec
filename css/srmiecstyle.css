@@ -1,0 +1,17 @@
+/*body{
+	background-image: url(https://static.agora.ge/image/data/gaeroo.jpg);
+	background: rgba(0,0,0,0.5);
+}*/
+body{
+  background-color:#e5e5e5; 
+    /* top, transparent red, faked with gradient  
+    linear-gradient(
+      rgba(0, f, f, 0.7), 
+      rgba(0, 0, 0, 0.7)
+    ),*/
+    /* bottom, image 
+    url(https://static.agora.ge/image/data/gaeroo.jpg);
+    color: rgb(255,179,28);*/
+}
+
+
