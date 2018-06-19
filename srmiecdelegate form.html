@@ -217,20 +217,12 @@
 					<br>
 					<label>First Committee Preference <span style="color: red">*</span></label>
 					<select class="update-select form-control" id="first" name="Firstcommittee" required style="background-color: transparent;">
-						<option disabled selected>-- select an option --</option>
-						<option>Futuristic Energy Crisis Committee</option>
-						<option>Council for Environmental Security</option>
-						<option>Persistent Past Committee</option>
-						<option>Indian Council for Sustainable Energy Development</option>
+						
 					</select>
 					<br>
 					<label>Second Committee Preference <span style="color: red">*</span></label>
 					<select class="update-select form-control" id="second" name="Secondcommittee" required style="background-color: transparent;">
-						<option disabled selected>-- select an option --</option>
-						<option>Futuristic Energy Crisis Committee</option>
-						<option>Council for Environmental Security</option>
-						<option>Persistent Past Committee</option>
-						<option>Indian Council for Sustainable Energy Development</option>
+						
 					</select>
 					<br><br>
 					<br><br>
@@ -267,73 +259,124 @@
 
 </div>
 <div id="committee-list" hidden>
-	<option disabled selected>-- select an option --</option>
-	<option>Futuristic Energy Crisis Committee</option>
-	<option>Council for Environmental Security</option>
-	<option>Persistent Past Committee</option>
-	<option>Indian Council for Sustainable Energy Development</option>
+
 </div>
 <div id="country-list-first" hidden>
-	<option disabled selected>-- select an option --</option>
-	<option>India</option>
-	<option>Pakistan</option>
-	<option>Bangladesh</option>
-	<option>Sri Lanka</option>
-	<option>Afghanistan</option>
+
 </div>
 <div id="country-list-second" hidden>
-	<option disabled selected>-- select an option --</option>
-	<option>India</option>
-	<option>Pakistan</option>
-	<option>Bangladesh</option>
-	<option>Sri Lanka</option>
-	<option>Afghanistan</option>
+
 </div>
 <div class="display"></div>
 <script>
-	var country = ["Afghanistan", "Australia", "Austria", "Bahrain", "Bangladesh", "Belgium", "Bosnia and Herzegowina", "Brazil", "Canada","Chile", "China" ,"Columbia", "Czech Republic", "Denmark","Democratic Republic of the Congo","Egypt", "Ethiopia","France","Finland", "Georgia", "Germany", "Greece", "Hungary", "India","Iran", "Iraq", "Israel","Italy","Japan", "Jordan", "Kazakhstan", "Kuwait","Libya", "Luxembourg", "Mexico", "Morocco","Netherlands", "Nigeria","North Korea/DPRK", "Norway", "Pakistan","Palestine", "Poland", "Portugal", "Qatar","South Korea/ROK", "Saudi Arabia", "South Africa", "Spain", "Sweden", "Switzerland","Syria", "Turkey", "United Arab Emirates", "United Kingdom", "United States of America","USSR/Russia","Vietnam"];
+	var committee=["Futuristic Energy Crisis Committee","Council for Environmental Security","Persistent Past Committee","Indian Council for Sustainable Energy Development"]
+	var country = [
+	["Afghanistan", "Australia", "Austria", "Bahrain", "Bangladesh", "Belgium", "Bosnia and Herzegowina", "Brazil", "Canada","Chile", "China" ,"Columbia", "Czech Republic", "Denmark","Democratic Republic of the Congo","Egypt", "Ethiopia","France","Finland", "Georgia", "Germany", "Greece", "Hungary", "India","Iran", "Iraq", "Israel","Italy","Japan", "Jordan", "Kazakhstan", "Kuwait","Libya", "Luxembourg", "Mexico", "Morocco","Netherlands", "Nigeria","North Korea/DPRK", "Norway", "Pakistan","Palestine", "Poland", "Portugal", "Qatar","South Korea/ROK", "Saudi Arabia", "South Africa", "Spain", "Sweden", "Switzerland","Syria", "Turkey", "United Arab Emirates", "United Kingdom", "United States of America","USSR/Russia","Vietnam"],
+	["Svalbard","Oxford","Panserjorne","Alethiometer"],
+	["Gryffindor","Hufflepuff","Ravenclaw","Slytherin"],
+	["Allomancy","Steel","Smoker","Soother"]
+	];
 	var serial=['first','second','third'];
 	var alreadyfirstglobal="";
 	var alreadysecondglobal="";
 	var alreadythirdglobal="";
-	function populate(one)
-	{
+	var committeechangefirst=0;
+	var committeechangesecond=0;
+	function populateCommittees(){
+		var options = '<option disabled selected>-- select an option --</option>';
+		for (var i = 0; i < committee.length; i++) {
+			options += '<option value="' + committee[i] + '">' + committee[i] + '</option>';
+		}
+		$('#committee-list').html(options);
+	}
+	function populateCommitteeMenus(){
+		for(var i=0;i<serial.length-1;i++)
+		{
+			$('#'+serial[i]).html($('#committee-list').html());
+		}
+	}
+	function populateCountries(com,sno) {
+		var options = '<option disabled selected>-- select an option --</option>';
+		for (var i = 0; i < country[com].length; i++) {
+			options += '<option value="' + country[com][i] + '">' + country[com][i] + '</option>';
+		}
+		$('#country-list-'+sno).html(options);
+	}
+	function populateCountryMenus(one){
     //$('.display').html(one);
     for(var i=0;i<serial.length;i++)
     {
     	$('#'+one+serial[i]).html($('#country-list-'+one).html());
     }
 };
-function populateCountries() {
-	var options = '<option disabled selected>-- select an option --</option>';
-	for (var i = 0; i < country.length; i++) {
-		options += '<option value="' + country[i] + '">' + country[i] + '</option>';
-	}
-	$('#country-list-first').html(options);
-	$('#country-list-second').html(options);
-}
-populateCountries();
+populateCommittees();
+populateCommitteeMenus();
 $('select[id=first]').on('change', function() {
 	var self = this;
+	committeechangefirst++;
 	$('select[id=second]').find('option').prop('disabled', function() {
 		return this.value == self.value
 	});
+	if(committeechangefirst==1)
+	{
 	$('select#first').after('<br><label>Third Country Preference <span style="color: red">*</span></label><select class="update-select form-control" id="firstthird" name="FirstcommitteeThirdCountry" required style="background-color: transparent;"></select>')
 	$('select#first').after('<br><label>Second Country Preference <span style="color: red">*</span></label><select class="update-select form-control" id="firstsecond" name="FirstcommitteeSecondCountry" required style="background-color: transparent;"></select>')
 	$('select#first').after('<br><label>First Country Preference <span style="color: red">*</span></label><select class="update-select form-control" id="firstfirst" name="FirstcommitteeFirstCountry" required style="background-color: transparent;"></select>')
-	populate('first');
+    }
+    var com;
+    if(self.value=="Futuristic Energy Crisis Committee")
+    {
+    	com=0;
+    }
+    if(self.value=="Council for Environmental Security")
+    {
+    	com=1;
+    }
+    if(self.value=="Persistent Past Committee")
+    {
+    	com=2;
+    }
+    if(self.value=="Indian Council for Sustainable Energy Development")
+    {
+    	com=3;
+    }
+	populateCountries(com,'first')
+	populateCountryMenus('first');
 	eventbinding('first');
 });
 
 $('select[id=second]').on('change', function() {
 	var self = this;
+	//$('.display').html(self.value);
+	committeechangesecond++;
 	$('select[id=first]').find('option').prop('disabled', function() {
 		return this.value == self.value
 	});
+	if(committeechangesecond==1)
+	{
 	$('select#second').after('<br><label>Third Country Preference <span style="color: red">*</span></label><select class="update-select form-control" id="secondthird" name="SecondcommitteeThirdCountry" required style="background-color: transparent;"></select>')
 	$('select#second').after('<br><label>Second Country Preference <span style="color: red">*</span></label><select class="update-select form-control" id="secondsecond" name="SecondcommitteeSecondCountry" required style="background-color: transparent;"></select>')
 	$('select#second').after('<br><label>First Country Preference <span style="color: red">*</span></label><select class="update-select form-control" id="secondfirst" name="SecondcommitteeFirstCountry" required style="background-color: transparent;"></select>')
-	populate('second');
+    }
+    var com;
+    if(self.value=="Futuristic Energy Crisis Committee")
+    {
+    	com=0;
+    }
+    if(self.value=="Council for Environmental Security")
+    {
+    	com=1;
+    }
+    if(self.value=="Persistent Past Committee")
+    {
+    	com=2;
+    }
+    if(self.value=="Indian Council for Sustainable Energy Development")
+    {
+    	com=3;
+    }
+	populateCountries(com,'second');
+	populateCountryMenus('second');
 	eventbinding('second');
 });
 function eventbinding(one){
@@ -381,31 +424,31 @@ function updatefirst(val1,sno){
 }
 function updatesecond(val2,sno){
 
-  var alreadyfirst=$('#'+sno+'first option:selected').text();       
-  var alreadythird=$('#'+sno+'third option:selected').text();
-  var opsfirst=$('#'+sno+'first').find('option');
-  opsfirst.each(function(){
-  	if($(this).text()==alreadysecondglobal)
-  	{
-  		$(this).prop('disabled',false);
-  	}
-  	if($(this).text()==val2)
-  	{
-  		$(this).prop('disabled',true);
-  	}
-  })
-  var opsthird=$('#'+sno+'third').find('option');
-  opsthird.each(function(){
-  	if($(this).text()==alreadysecondglobal)
-  	{
-  		$(this).prop('disabled',false);
-  	}
-  	if($(this).text()==val2)
-  	{
-  		$(this).prop('disabled',true);
-  	}
-  })
-  alreadysecondglobal=$('#'+sno+'second option:selected').text();
+	var alreadyfirst=$('#'+sno+'first option:selected').text();       
+	var alreadythird=$('#'+sno+'third option:selected').text();
+	var opsfirst=$('#'+sno+'first').find('option');
+	opsfirst.each(function(){
+		if($(this).text()==alreadysecondglobal)
+		{
+			$(this).prop('disabled',false);
+		}
+		if($(this).text()==val2)
+		{
+			$(this).prop('disabled',true);
+		}
+	})
+	var opsthird=$('#'+sno+'third').find('option');
+	opsthird.each(function(){
+		if($(this).text()==alreadysecondglobal)
+		{
+			$(this).prop('disabled',false);
+		}
+		if($(this).text()==val2)
+		{
+			$(this).prop('disabled',true);
+		}
+	})
+	alreadysecondglobal=$('#'+sno+'second option:selected').text();
 }
 function updatethird(val3,sno){
 
